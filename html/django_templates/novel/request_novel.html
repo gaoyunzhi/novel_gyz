@@ -1,0 +1,15 @@
+{% if sent %}
+    <p>Your request has been sent. </p> 
+	<p>Your requested url is 
+		<a href="{{ form_recieved.url.value }}", target="_blank">
+			{{ form_recieved.url.value }}
+		</a>
+	</p>
+{% endif %}
+
+<form action="/novel/request_novel" method="POST">{% csrf_token %}
+<table>
+{{ form.as_table }}
+</table>
+<input type="submit" value="Submit" />
+</form>
